@@ -5,10 +5,10 @@ services:
   app-wrapper:
     env_file:
       - dev.env
-    image: hackathon/python
+    image: hackathon/qcpdf-python
     volumes:
       - ./data:/service/data
-    container_name: hackathon-python
+    container_name: hackathon-qcpdf-python
     build:
       context: .
       dockerfile: ./Dockerfile_arm64 # change to Dockerfile on Linux
