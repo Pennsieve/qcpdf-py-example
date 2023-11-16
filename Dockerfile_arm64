@@ -6,7 +6,7 @@ RUN apt clean && apt-get update
 # install dependencies
 RUN apt-get -y install wget && apt-get -y install gnupg && apt-get -y install curl
 RUN wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | apt-key add -
-RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$cleanup.csv}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
+RUN echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
 RUN apt-get update
 # next flow dependencies
 RUN apt-get -y install temurin-17-jdk
